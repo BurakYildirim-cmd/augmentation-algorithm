@@ -8,9 +8,9 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(f"device: {device}")
 
 #640x640 crop
+DOWNSCALE = 0.25
 TILE_SIZE = 64
 OUTPUT_SIZE =  int(640 * DOWNSCALE)
-DOWNSCALE = 0.25
 BATCH_SIZE = 128
 
 # Sobel fiters
@@ -38,7 +38,7 @@ def batch_calc_tile_scores(tile_list):
         brightness_vals.append(brightness)
 
         gray = gray.astype(np.float32) / 255.0
-        gray_tensor = torch.from_numpy(gray).unsqueeze(0)  # [1, H, W]
+        gray_tensor = torch.from_numpy(gray) # [1, H, W]
         gray_tensors.append(gray_tensor)
 
     gray_batch = torch.stack(gray_tensors).unsqueeze(1).to(device)  # [B, 1, H, W]
@@ -133,6 +133,6 @@ def process_images(input_folder, output_folder):
         process_image(img_path, output_folder)
 
 if __name__ == "__main__":
-    input_folder = r"INPUT_PATH"
-    output_folder = r"OUTPUT_PATH"
+    input_folder = r"C:\Users\yldrm\Downloads\imf"
+    output_folder = r"C:\Users\yldrm\Downloads\imf"
     process_images(input_folder, output_folder)
