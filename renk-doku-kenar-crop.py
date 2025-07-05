@@ -64,7 +64,7 @@ def map_tile_to_original_coords(x_small, y_small, tile_w, tile_h, scale_x, scale
 def process_image(img_path, output_dir):
     img = cv2.imread(img_path)
     if img is None:
-        print(f"HATA: {img_path} okunamadı")
+        print(f"ERROR: {img_path} could not be read.")
         return
 
     h, w = img.shape[:2]
@@ -133,6 +133,6 @@ def process_images(input_folder, output_folder):
         process_image(img_path, output_folder)
 
 if __name__ == "__main__":
-    input_folder = r"C:\Users\yldrm\Downloads\imf"
-    output_folder = r"C:\Users\yldrm\Downloads\imf"
+    input_folder = r"INPUT_PATH"
+    output_folder = r"OUTPUT_PATH
     process_images(input_folder, output_folder)
