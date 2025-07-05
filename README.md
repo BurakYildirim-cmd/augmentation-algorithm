@@ -1,4 +1,5 @@
-Code Functionality
+Code Functionality:
+
 The images are initially downscaled by 25% to speed up the analysis process. Visual features such as color, texture, and edges (corners) are searched for and evaluated on this downscaled version.
 
 The downscaled image is divided into small tiles of 64x64 pixels. Each tile is scored based on metrics such as color diversity (Hue standard deviation), brightness, and edge density (Sobel edge detection). These metrics are used to identify regions with high information content in the image.
